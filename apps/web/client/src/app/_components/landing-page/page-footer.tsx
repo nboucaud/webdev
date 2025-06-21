@@ -8,8 +8,8 @@ export function Footer() {
         <footer className="w-full text-foreground-primary border-t border-foreground-primary/10 mt-24 pb-24">
             <div className="max-w-6xl mx-auto px-8 pt-16 pb-24 flex flex-col md:flex-row md:items-start gap-24">
                 {/* Left: Slogan */}
-                <div 
-                    className="flex-1 flex flex-col gap-8 min-w-[250px] cursor-pointer" 
+                <div
+                    className="flex-1 flex flex-col gap-8 min-w-[250px] cursor-pointer"
                     onClick={() => router.push('/')}
                 >
                     <Icons.OnlookTextLogo className="w-24 h-5 text-foreground-primary" />
@@ -27,24 +27,24 @@ export function Footer() {
                             <li><a href="mailto:contact@onlook.com" className="hover:underline">Contact</a></li>
                         </ul>
                     </div>
-                    <div className="min-w-[200px]">
-                        <h4 className="text-regularPlus mb-4 text-foreground-primary">Product</h4>
-                        <ul className="flex flex-col gap-4 text-regular text-foreground-secondary">
-                            <li><a href="/projects" className="hover:underline">My Projects</a></li>
-                            <li><a href="https://github.com/onlook-dev/onlook" target="_blank" className="hover:underline">GitHub Repo</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 className="text-regularPlus mb-4 text-foreground-primary">Follow Us</h4>
-                        <div className="flex gap-6 mt-2">
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                                <Icons.GitHubLogo className="w-6 h-6 text-white hover:text-white/70 transition-colors" />
-                            </a>
-                            <a href="https://discord.com" target="_blank" rel="noopener noreferrer">
-                                <Icons.DiscordLogo className="w-6 h-6 text-white hover:text-white/70 transition-colors" />
-                            </a>
-                        </div>
-                    </div>
+                    {/*<div className="min-w-[200px]">*/}
+                    {/*    <h4 className="text-regularPlus mb-4 text-foreground-primary">Product</h4>*/}
+                    {/*    <ul className="flex flex-col gap-4 text-regular text-foreground-secondary">*/}
+                    {/*        <li><a href="/projects" className="hover:underline">My Projects</a></li>*/}
+                    {/*        <li><a href="https://github.com/onlook-dev/onlook" target="_blank" className="hover:underline">GitHub Repo</a></li>*/}
+                    {/*    </ul>*/}
+                    {/*</div>*/}
+                    {/*<div>*/}
+                    {/*    <h4 className="text-regularPlus mb-4 text-foreground-primary">Follow Us</h4>*/}
+                    {/*    <div className="flex gap-6 mt-2">*/}
+                    {/*        <a href="https://github.com" target="_blank" rel="noopener noreferrer">*/}
+                    {/*            <Icons.GitHubLogo className="w-6 h-6 text-white hover:text-white/70 transition-colors" />*/}
+                    {/*        </a>*/}
+                    {/*        <a href="https://discord.com" target="_blank" rel="noopener noreferrer">*/}
+                    {/*            <Icons.DiscordLogo className="w-6 h-6 text-white hover:text-white/70 transition-colors" />*/}
+                    {/*        </a>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                 </div>
             </div>
             {/* Bottom Bar */}
@@ -62,4 +62,4 @@ export function Footer() {
             </div>
         </footer>
     );
-} 
+}

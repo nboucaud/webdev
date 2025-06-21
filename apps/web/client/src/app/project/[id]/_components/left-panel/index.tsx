@@ -117,7 +117,7 @@ export const LeftPanel = observer(() => {
             onMouseLeave={handleMouseLeave}
         >
             {/* Left sidebar with tabs */}
-            <div className="w-20 bg-background-onlook/60 backdrop-blur-xl flex flex-col items-center py-0.5 gap-2">
+            <div className="w-20 bg-[#0A0C0D] backdrop-blur-xl flex flex-col items-center py-0.5 gap-2">
                 {tabs.map((tab) => (
                     <button
                         key={tab.value}

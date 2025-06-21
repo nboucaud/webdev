@@ -37,7 +37,7 @@ export const TopBar = observer(({ projectId }: { projectId: string }) => {
     ];
 
     return (
-        <div className="bg-background-primary/20 backdrop-blur-md flex flex-row h-10 p-0 justify-center items-center">
+        <div className="bg-[#0A0C0D] backdrop-blur-md flex flex-row h-10 p-0 justify-center items-center">
             <div className="flex flex-row flex-grow basis-0 space-x-1 justify-start items-center">
                 <ProjectBreadcrumb />
             </div>
