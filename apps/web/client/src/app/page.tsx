@@ -2,7 +2,6 @@
 
 import { AuthModal } from './_components/auth-modal';
 import { Hero } from './_components/hero';
-import { ContributorSection } from './_components/landing-page/contributor-section';
 import { Footer } from './_components/landing-page/page-footer';
 import { TopBar } from './_components/top-bar';
 
@@ -21,7 +20,7 @@ export default function Main() {
             {/* <CodeOneToOneSection /> */}
             {/* <TestimonialsSection /> */}
             {/* <CTASection /> */}
-            <ContributorSection />
+            {/*<ContributorSection />*/}
             {/* <FAQSection /> */}
             {/* <WhatCanOnlookDoSection /> */}
             <Footer />

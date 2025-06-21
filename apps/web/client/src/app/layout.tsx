@@ -13,14 +13,14 @@ import { ThemeProvider } from './_components/theme';
 import { AuthProvider } from './auth/auth-context';
 
 export const metadata: Metadata = {
-    title: 'Onlook – Cursor for Designers',
-    description: 'The power of Cursor for your own website. Onlook lets you edit your React website and write your changes back to code in real-time. Iterate and experiment with AI.',
+    title: 'Infogito – Cursor for Designers',
+    description: 'The power of Cursor for your own website. Infogito lets you edit your React website and write your changes back to code in real-time. Iterate and experiment with AI.',
     icons: [{ rel: 'icon', url: '/favicon.ico' }],
     openGraph: {
-        url: 'https://onlook.com/',
+        // url: 'https://Infogito.com/',
         type: 'website',
-        title: 'Onlook – Cursor for Designers',
-        description: 'The power of Cursor for your own website. Onlook lets you edit your React website and write your changes back to code in real-time. Iterate and experiment with AI.',
+        title: 'Infogito – Cursor for Designers',
+        description: 'The power of Cursor for your own website. Infogito lets you edit your React website and write your changes back to code in real-time. Iterate and experiment with AI.',
         images: [
             {
                 url: 'https://framerusercontent.com/images/ScnnNT7JpmUya7afqGAets8.png',
@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        site: '@onlookdev',
-        creator: '@onlookdev',
-        title: 'Onlook – Cursor for Designers',
-        description: 'The power of Cursor for your own website. Onlook lets you edit your React website and write your changes back to code in real-time. Iterate and experiment with AI.',
+        // site: '@Infogito',
+        // creator: '@Infogito',
+        title: 'Infogito – Cursor for Designers',
+        description: 'The power of Cursor for your own website. Infogito lets you edit your React website and write your changes back to code in real-time. Iterate and experiment with AI.',
         images: [
             {
                 url: 'https://framerusercontent.com/images/ScnnNT7JpmUya7afqGAets8.png',

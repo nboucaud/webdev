@@ -7,7 +7,6 @@ import { Button } from '@onlook/ui/button';
 import { Icons } from '@onlook/ui/icons/index';
 import { observer } from 'mobx-react-lite';
 import Link from 'next/link';
-import { GitHubButton } from './github';
 
 export const TopBar = observer(() => {
     const userManager = useUserManager();
@@ -19,13 +18,13 @@ export const TopBar = observer(() => {
                 <Link href={Routes.HOME}>
                     <Icons.OnlookTextLogo className="h-3" />
                 </Link>
-                <Link href="https://docs.onlook.com" target="_blank" className="text-regular hover:opacity-80">
-                    Docs
-                </Link>
+                {/*<Link href="https://docs.onlook.com" target="_blank" className="text-regular hover:opacity-80">*/}
+                {/*    Docs*/}
+                {/*</Link>*/}
                 {/* <Link href={Routes.PRICING} className="text-regular hover:opacity-80">
                     Pricing
                 </Link> */}
-                <GitHubButton />
+                {/*<GitHubButton />*/}
             </div>
             <div className="flex items-center gap-3">
                 {user ? (

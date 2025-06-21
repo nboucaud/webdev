@@ -31,9 +31,9 @@ export default function LoginPage() {
                         <h1 className="text-title1 leading-tight">
                             {t(transKeys.welcome.title)}
                         </h1>
-                        <p className="text-foreground-onlook text-regular">
-                            {t(transKeys.welcome.description)}
-                        </p>
+                        {/*<p className="text-foreground-onlook text-regular">*/}
+                        {/*    {t(transKeys.welcome.description)}*/}
+                        {/*</p>*/}
                     </div>
                     <div className="space-x-2 flex flex-row">
                         <GithubLoginButton />

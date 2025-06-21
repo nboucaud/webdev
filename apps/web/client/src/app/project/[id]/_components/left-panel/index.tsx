@@ -117,15 +117,15 @@ export const LeftPanel = observer(() => {
             onMouseLeave={handleMouseLeave}
         >
             {/* Left sidebar with tabs */}
-            <div className="w-20 bg-background-onlook/60 backdrop-blur-xl flex flex-col items-center py-0.5 gap-2">
+            <div className="w-20 bg-[#0A0C0D] backdrop-blur-xl flex flex-col items-center py-0.5 gap-2">
                 {tabs.map((tab) => (
                     <button
                         key={tab.value}
                         className={cn(
-                            'w-16 h-16 rounded-xl flex flex-col items-center justify-center gap-1.5 p-2',
+                            'w-16 h-16 rounded-xl flex flex-col items-center justify-center gap-1.5 p-2 text-[#8bedeb]',
                             selectedTab === tab.value && isLocked
-                                ? 'bg-accent text-foreground border-[0.5px] border-foreground/20 '
-                                : 'text-muted-foreground hover:text-foreground hover:bg-accent/50',
+                                ? 'bg-accent border-[0.5px] border-foreground/20 '
+                                : 'hover:text-[#8bedeb] hover:bg-accent/50',
                             tab.disabled && 'opacity-50 cursor-not-allowed hover:bg-transparent hover:text-muted-foreground',
                         )}
                         disabled={tab.disabled}
@@ -139,7 +139,7 @@ export const LeftPanel = observer(() => {
 
                 <div className="mt-auto flex flex-col gap-0 items-center mb-4">
                     <ZoomControls />
-                    <HelpDropdown />
+                    {/*<HelpDropdown />*/}
                 </div>
             </div>
 

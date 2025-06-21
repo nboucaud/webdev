@@ -26,9 +26,9 @@ export default function SitemapPage() {
                                     <li>
                                         <a href="https://docs.onlook.com" target="_blank" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">Docs</a>
                                     </li>
-                                    <li>
-                                        <a href="/faq" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">FAQ</a>
-                                    </li>
+                                    {/*<li>*/}
+                                    {/*    <a href="/faq" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">FAQ</a>*/}
+                                    {/*</li>*/}
                                     <li>
                                         <a href="https://onlook.substack.com" target="_blank" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">Blog</a>
                                     </li>
@@ -45,9 +45,9 @@ export default function SitemapPage() {
                                     <li>
                                         <a href="/get-started" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">Get Started</a>
                                     </li>
-                                    <li>
-                                        <a href="https://github.com/onlook" target="_blank" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">GitHub</a>
-                                    </li>
+                                    {/*<li>*/}
+                                    {/*    <a href="https://github.com/onlook" target="_blank" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">GitHub</a>*/}
+                                    {/*</li>*/}
                                     <li>
                                         <a href="/visual-editor" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">Visual Editor</a>
                                     </li>
@@ -111,4 +111,4 @@ export default function SitemapPage() {
             <Footer />
         </div>
     );
-} 
+}
