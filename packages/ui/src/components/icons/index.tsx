@@ -247,67 +247,7 @@ export const Icons = {
             </defs>
         </svg>
     ),
-    OnlookTextLogo: ({ className, ...props }: IconProps) => (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="139"
-            height="17"
-            viewBox="0 0 139 17"
-            fill="none"
-            className={cn('w-auto h-auto preserve-aspect-ratio dark:invert', className)}
-            {...props}
-        >
-            <path
-                d="M26.7578 16.502V4.40195H28.7485L43.3051 15.4019H44.7981V3.30195"
-                stroke="black"
-                style={{ stroke: 'black', strokeOpacity: 1 }}
-                strokeWidth="2.73715"
-            />
-            <path
-                d="M50.7734 3.30237V15.4023L67.0719 15.4023"
-                stroke="black"
-                style={{ stroke: 'black', strokeOpacity: 1 }}
-                strokeWidth="2.73715"
-            />
-            <rect
-                x="2"
-                y="4.62305"
-                width="19.4089"
-                height="10.56"
-                rx="5.27999"
-                stroke="black"
-                style={{ stroke: 'black', strokeOpacity: 1 }}
-                strokeWidth="2.73715"
-            />
-            <rect
-                x="69.6797"
-                y="4.62305"
-                width="19.4089"
-                height="10.56"
-                rx="5.27999"
-                stroke="black"
-                style={{ stroke: 'black', strokeOpacity: 1 }}
-                strokeWidth="2.73715"
-            />
-            <rect
-                x="94.0703"
-                y="4.62305"
-                width="19.4089"
-                height="10.56"
-                rx="5.27999"
-                stroke="black"
-                style={{ stroke: 'black', strokeOpacity: 1 }}
-                strokeWidth="2.73715"
-            />
-            <path
-                fillRule="evenodd"
-                clipRule="evenodd"
-                d="M120.823 10.3906V16.502H118.086V9.022V3.30204H120.823V7.65343H128.075L133.781 3.30213H138.295L130.657 9.126L138.583 16.502H134.565L127.999 10.3906H120.823ZM137.735 0.442137L137.66 0.34375L137.531 0.442137H137.735Z"
-                fill="black"
-                style={{ fill: 'black', fillOpacity: 1 }}
-            />
-        </svg>
-    ),
+    OnlookTextLogo: ({ className, ...props }: IconProps) => null,
     GoogleLogo: ({ className, ...props }: IconProps) => (
         <svg
             width="24"
