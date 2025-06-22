@@ -16,6 +16,8 @@ const nextConfig: NextConfig = {
     typescript: {
         ignoreBuildErrors: true,
     },
+
+    productionBrowserSourceMaps: false,
 };
 
 if (process.env.NODE_ENV === 'development') {
@@ -24,7 +26,7 @@ if (process.env.NODE_ENV === 'development') {
 
 const withNextIntl = createNextIntlPlugin({
     experimental: {
-        createMessagesDeclaration: './messages/en.json'
-    }
+        createMessagesDeclaration: './messages/en.json',
+    },
 });
 export default withNextIntl(nextConfig);

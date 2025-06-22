@@ -12,24 +12,16 @@ export async function GET(request: Request) {
         const supabase = await createClient();
         const { error, data } = await supabase.auth.exchangeCodeForSession(code);
         if (!error) {
-            const forwardedHost = request.headers.get('x-forwarded-host'); // original origin before load balancer
+            //const forwardedHost = request.headers.get('x-forwarded-host'); // original origin before load balancer
             const isLocalEnv = process.env.NODE_ENV === 'development';
             const user = await getOrCreateUser(data.user.id);
-
             trackUserSignedIn(user.id, {
                 name: data.user.user_metadata.name,
                 email: data.user.email,
                 avatar_url: data.user.user_metadata.avatar_url,
             });
 
-            // Redirect to the redirect page which will handle the return URL
-            if (isLocalEnv) {
-                return NextResponse.redirect(`${origin}/auth/redirect`);
-            } else if (forwardedHost) {
-                return NextResponse.redirect(`https://${forwardedHost}/auth/redirect`);
-            } else {
-                return NextResponse.redirect(`${origin}/auth/redirect`);
-            }
+            return NextResponse.redirect(`${origin}/auth/redirect`);
         }
         console.error(`Error exchanging code for session: ${error}`);
     }
@@ -61,8 +53,8 @@ function trackUserSignedIn(userId: string, properties: Record<string, any>) {
                 ...properties,
                 $set_once: {
                     signup_date: new Date().toISOString(),
-                }
-            }
+                },
+            },
         });
         client.capture({ event: 'user_signed_in', distinctId: userId });
     } catch (error) {

@@ -1,10 +1,11 @@
-FROM oven/bun:alpine
+# 1. Build Stage
+FROM oven/bun:alpine AS builder
 WORKDIR /app
-COPY apps/web/client/package.json ./apps/web/client/package.json
-COPY apps/web/server/package.json ./apps/web/server/package.json
 
+COPY package.json bun.lock ./
+COPY apps/web/client/package.json ./apps/web/client/
+COPY apps/web/server/package.json ./apps/web/server/
 COPY packages/db/package.json ./packages/db/package.json
-COPY docs/package.json ./docs/package.json
 COPY packages/constants/package.json ./packages/constants/package.json
 COPY packages/email/package.json ./packages/email/package.json
 COPY packages/utility/package.json ./packages/utility/package.json
@@ -22,11 +23,26 @@ COPY package.json ./
 COPY bun.lock ./
 
 RUN bun install
-COPY apps/web/client/ ./apps/web/client/
-COPY apps/web/server/ ./apps/web/server/
-COPY packages/ ./packages/
-COPY tooling/ ./tooling/
+
+
+COPY . .
+
+
+WORKDIR /app/apps/web/client
+ENV NODE_OPTIONS=--max-old-space-size=7168
+RUN bun run build
+
+
+FROM oven/bun:alpine AS runner
+WORKDIR /app
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/apps/web/client/.next ./apps/web/client/.next
+COPY --from=builder /app/apps/web/client/public ./apps/web/client/public
+COPY --from=builder /app/apps/web/client/package.json ./apps/web/client/package.json
+
 WORKDIR /app/apps/web/client
 EXPOSE 3000
-RUN bun run build
+
+
 CMD ["bun", "run", "start"] 

@@ -16,7 +16,7 @@
     },
     "type": "module",
     "scripts": {
-        "build": "next build",
+        "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
         "check": "next lint && tsc --noEmit",
         "dev": "next dev --turbo",
         "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
