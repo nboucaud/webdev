@@ -1,2 +1,33 @@
+# Docker
+Dockerfile
+.dockerignore
+
+# Git
+.git
+.gitignore
+
+# Node
 node_modules
+.npm
+npm-debug.log
+yarn-error.log
+
+# Next.js
 .next
+
+# Build artifacts
+dist
+build
+coverage
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln

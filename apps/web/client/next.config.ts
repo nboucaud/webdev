@@ -18,6 +18,9 @@ const nextConfig: NextConfig = {
     },
 
     productionBrowserSourceMaps: false,
+    experimental: {
+        cpus: 2,
+    },
 };
 
 if (process.env.NODE_ENV === 'development') {
