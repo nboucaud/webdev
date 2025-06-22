@@ -13,4 +13,4 @@ docker network create deployment-onlook_network || true
 echo "Starting Client Service..."
 docker rm -f client || true
 docker build -f apps/web/client/Dockerfile -t client .
-docker run --name client --network deployment-onlook_network client
+docker run -d --name client --network deployment-onlook_network client
