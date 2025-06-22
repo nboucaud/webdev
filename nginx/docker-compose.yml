@@ -6,7 +6,7 @@ services:
     nginx:
         image: nginx:alpine
         restart: unless-stopped
-        container_name: nginx
+        container_name: onlook-nginx
         networks:
             - network1
         ports:
