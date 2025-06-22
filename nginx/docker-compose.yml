@@ -10,7 +10,7 @@ services:
         networks:
             - network1
         ports:
-            - '80:80'
+            - '88:80'
         volumes:
             - ./nginx.conf:/etc/nginx/nginx.conf
             - ./conf.d:/etc/nginx/conf.d
