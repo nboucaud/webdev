@@ -29,7 +29,8 @@ COPY . .
 
 
 WORKDIR /app/apps/web/client
-ENV NODE_OPTIONS=--max-old-space-size=7168
+ENV NODE_OPTIONS=--max-old-space-size=2048
+ENV NEXT_BUILD_WORKERS=1
 RUN bun run build
 
 

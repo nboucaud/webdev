@@ -20,6 +20,7 @@ const nextConfig: NextConfig = {
     productionBrowserSourceMaps: false,
     experimental: {
         cpus: 2,
+        workerThreads: false,
     },
 };
 
