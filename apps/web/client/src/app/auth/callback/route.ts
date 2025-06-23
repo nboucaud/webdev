@@ -21,6 +21,8 @@ export async function GET(request: Request) {
                 avatar_url: data.user.user_metadata.avatar_url,
             });
 
+            console.log({ redirectUrl: `${origin}/auth/redirect` });
+
             return NextResponse.redirect(`${origin}/auth/redirect`);
         }
         console.error(`Error exchanging code for session: ${error}`);

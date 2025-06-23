@@ -11,7 +11,7 @@ fi
 # Build the client application
 echo "Building Client Application..."
 cd apps/web/client
-NODE_OPTIONS='--max-old-space-size=2048' bun run build
+NODE_OPTIONS='--max_old_space_size=2048' bun run build
 cd ../../..
 
 docker network create deployment-onlook_network || true

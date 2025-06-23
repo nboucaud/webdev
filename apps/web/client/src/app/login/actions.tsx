@@ -31,7 +31,6 @@ export async function login(provider: SignInMethod) {
     if (error) {
         redirect('/error');
     }
-
     redirect(data.url);
 }
 
