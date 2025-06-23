@@ -8,10 +8,10 @@ extra_search_path = ["public"]
 max_rows = 100
 
 [auth]
-site_url = "https://onlook.com"
+site_url = "env(SITE_URL)"
 additional_redirect_urls = [
-    "http://localhost:3000",
-    "http://localhost:3000/auth/callback",
+    "env(SITE_URL)",
+    "env(SITE_URL)/auth/callback",
 ]
 jwt_expiry = 36000
 

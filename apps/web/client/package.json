@@ -16,9 +16,10 @@
     },
     "type": "module",
     "scripts": {
-        "build": "NODE_OPTIONS='--max-old-space-size=2048' next build",
+        "build": "NODE_OPTIONS='--max-old-space-size=1536 --max-semi-space-size=128 --optimize-for-size' next build",
+        "build:memory-safe": "node --max-old-space-size=1536 --max-semi-space-size=128 ./node_modules/.bin/next build",
         "check": "next lint && tsc --noEmit",
-        "dev": "next dev --turbo",
+        "dev": "next dev",
         "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
         "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
         "lint": "next lint",
