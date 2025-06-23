@@ -16,9 +16,9 @@ export const FontSizeSelector = observer(
         const inputRef = useRef<HTMLInputElement>(null);
         const { handleFontSizeChange, textState } = useTextControl();
         const [inputValue, setInputValue] = useState(textState.fontSize.toString());
-        
-        const { isOpen, onOpenChange } = useDropdownControl({ 
-            id: 'font-size-dropdown' 
+
+        const { isOpen, onOpenChange } = useDropdownControl({
+            id: 'font-size-dropdown'
         });
 
         // Update local input value when textState.fontSize changes externally
@@ -94,7 +94,7 @@ export const FontSizeSelector = observer(
                             variant="ghost"
                             size="toolbar"
                             onClick={() => adjustFontSize(-1)}
-                            className="border-border/0 hover:bg-background-tertiary/20 hover:border-border text-muted-foreground data-[state=open]:bg-background-tertiary/20 data-[state=open]:border-border h-8 w-8 cursor-pointer rounded-lg border px-2 hover:border hover:text-white data-[state=open]:border data-[state=open]:text-white"
+                            className="border-border/0 hover:bg-background-tertiary/20 hover:border-border text-[#8bedeb] data-[state=open]:bg-background-tertiary/20 data-[state=open]:border-border h-8 w-8 cursor-pointer rounded-lg border px-2 hover:border data-[state=open]:border data-[state=open]:text-white"
                         >
                             <Icons.Minus className="h-4 w-4" />
                         </Button>

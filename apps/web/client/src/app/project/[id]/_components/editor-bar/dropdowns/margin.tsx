@@ -18,9 +18,9 @@ import { observer } from "mobx-react-lite";
 export const Margin = observer(() => {
     const [activeTab, setActiveTab] = useState("all");
     const { boxState, handleBoxChange, handleUnitChange, handleIndividualChange } = useBoxControl('margin');
-    
-    const { isOpen, onOpenChange } = useDropdownControl({ 
-        id: 'margin-dropdown' 
+
+    const { isOpen, onOpenChange } = useDropdownControl({
+        id: 'margin-dropdown'
     });
 
     return (
@@ -30,7 +30,7 @@ export const Margin = observer(() => {
                     <Button
                         variant="ghost"
                         size="toolbar"
-                        className="text-muted-foreground border-border/0 hover:bg-background-tertiary/20 hover:border-border data-[state=open]:bg-background-tertiary/20 data-[state=open]:border-border gap-1 flex cursor-pointer items-center border hover:border hover:text-white focus-visible:ring-0 focus-visible:outline-none active:border-0 data-[state=open]:border data-[state=open]:text-white"
+                        className="text-[#8bedeb] border-border/0 hover:bg-background-tertiary/20 hover:border-border data-[state=open]:bg-background-tertiary/20 data-[state=open]:border-border gap-1 flex cursor-pointer items-center border hover:border focus-visible:ring-0 focus-visible:outline-none active:border-0 data-[state=open]:border data-[state=open]:text-white"
                     >
                         <Icons.Margin className="h-4 min-h-4 w-4 min-w-4" />
                         {boxState.margin.unit === 'px' && typeof boxState.margin.num === 'number' && boxState.margin.num !== 0 ? (

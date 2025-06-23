@@ -158,7 +158,7 @@ export const Canvas = observer(() => {
         <HotkeysArea>
             <div
                 ref={containerRef}
-                className="overflow-hidden bg-background-onlook flex flex-grow relative"
+                className="overflow-hidden bg-black flex flex-grow relative"
                 onMouseDown={handleCanvasMouseDown}
             >
                 <div id={EditorAttributes.CANVAS_CONTAINER_ID} style={transformStyle}>
