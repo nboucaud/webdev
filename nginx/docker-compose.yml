@@ -14,7 +14,7 @@ services:
         volumes:
             - ./nginx.conf:/etc/nginx/nginx.conf
             - ./conf.d:/etc/nginx/conf.d
-            - next_static:/var/www/onlook/_next/static
+            - next_static:/app/apps/web/client/.next/static
 volumes:
     next_static:
         external: true
