@@ -8,9 +8,15 @@ if [ ! -f ./apps/web/client/.env ]; then
   exit 1
 fi
 
+# Build the client application
+echo "Building Client Application..."
+cd apps/web/client
+NODE_OPTIONS='--max-old-space-size=2048' bun run build
+cd ../../..
+
 docker network create deployment-onlook_network || true
 # Start the services using the docker-compose file in the nginx directory
 echo "Starting Client Service..."
 docker rm -f client || true
-docker build -f apps/web/client/Dockerfile -t client .
+docker build --memory=4g -f apps/web/client/Dockerfile -t client .
 docker run -d --name client --network deployment-onlook_network -v next_static:/app/apps/web/client/.next/static client
