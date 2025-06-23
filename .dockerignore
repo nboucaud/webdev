@@ -1,0 +1,65 @@
+node_modules/
+**/node_modules/
+**/.npm/
+**/npm-debug.log
+**/yarn-error.log
+**/bun.lock
+
+# Build outputs
+**/dist/
+**/build/
+**/coverage/
+**/.turbo/
+
+# Documentation (237MB you don't need)
+docs/
+
+# Git
+.git/
+.gitignore
+**/.gitignore
+
+# OS files
+.DS_Store
+**/Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+**/*.suo
+**/*.ntvs*
+**/*.njsproj
+**/*.sln
+
+# Logs
+**/*.log
+
+# Testing
+**/test/
+**/*.test.*
+**/*.spec.*
+
+# Environment files
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+
+# Temporary files
+**/tmp
+**/temp
+
+# Large assets (add specific patterns for your project)
+**/*.mp4
+**/*.mov
+**/*.avi
+**/*.zip
+**/*.tar.gz
+
+# Cache directories
+**/.cache/
+**/.parcel-cache/
+**/.eslintcache
+
+# Lock files (you already copy them explicitly)
+package-lock.json 
