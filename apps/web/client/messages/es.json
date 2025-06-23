@@ -15,12 +15,12 @@
                 "load": "Cargar Proyecto Existente"
             },
             "loading": {
-                "title": "Configurando su nueva aplicación Onlook...",
+                "title": "Configurando su nueva aplicación infogito...",
                 "description": "Esto puede tomar unos segundos",
                 "cancel": "Cancelar"
             },
             "error": {
-                "title": "Error al crear su aplicación Onlook",
+                "title": "Error al crear su aplicación infogito",
                 "backToPrompt": "Volver al Prompt"
             }
         },
@@ -35,7 +35,7 @@
         "actions": {
             "import": "Importar",
             "close": "Cerrar",
-            "about": "Acerca de Onlook",
+            "about": "Acerca de infogito",
             "signOut": "Cerrar sesión",
             "editApp": "Editar Aplicación",
             "projectSettings": "Configuración del proyecto",
@@ -81,9 +81,9 @@
         }
     },
     "welcome": {
-        "title": "Bienvenido a Onlook",
-        "titleReturn": "Bienvenido de vuelta a Onlook",
-        "description": "Onlook es un editor visual de código abierto para aplicaciones React. Diseñe directamente en su producto en vivo.",
+        "title": "Bienvenido a infogito",
+        "titleReturn": "Bienvenido de vuelta a infogito",
+        "description": "infogito es un editor visual de código abierto para aplicaciones React. Diseñe directamente en su producto en vivo.",
         "alpha": "Alpha",
         "login": {
             "github": "Iniciar sesión con GitHub",
@@ -103,7 +103,7 @@
     "pricing": {
         "plans": {
             "basic": {
-                "name": "Onlook Básico",
+                "name": "infogito Básico",
                 "price": "$0/mes",
                 "description": "Prototipe y experimente en código con facilidad.",
                 "features": [
@@ -115,7 +115,7 @@
                 ]
             },
             "pro": {
-                "name": "Onlook Pro",
+                "name": "infogito Pro",
                 "price": "$20/mes",
                 "description": "Creatividad sin restricciones. Construya sitios impresionantes con IA.",
                 "features": [
@@ -123,8 +123,8 @@
                     "Proyectos ilimitados",
                     "Mensajes de chat IA ilimitados por día",
                     "Chats mensuales ilimitados",
-                    "Remover marca de agua 'construido con Onlook'",
-                    "1 dominio personalizado gratuito alojado con Onlook",
+                    "Remover marca de agua 'construido con infogito'",
+                    "1 dominio personalizado gratuito alojado con infogito",
                     "Soporte prioritario"
                 ]
             },
@@ -320,7 +320,7 @@
     },
     "help": {
         "menu": {
-            "reloadOnlook": "Recargar Onlook",
+            "reloadinfogito": "Recargar infogito",
             "theme": {
                 "title": "Tema",
                 "light": "Claro",

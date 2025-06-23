@@ -23,15 +23,15 @@ export default function SitemapPage() {
                                     <li>
                                         <a href="/about" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">About</a>
                                     </li>
-                                    <li>
-                                        <a href="https://docs.onlook.com" target="_blank" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">Docs</a>
-                                    </li>
+                                    {/*<li>*/}
+                                    {/*    <a href="https://docs.onlook.com" target="_blank" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">Docs</a>*/}
+                                    {/*</li>*/}
                                     {/*<li>*/}
                                     {/*    <a href="/faq" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">FAQ</a>*/}
                                     {/*</li>*/}
-                                    <li>
-                                        <a href="https://onlook.substack.com" target="_blank" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">Blog</a>
-                                    </li>
+                                    {/*<li>*/}
+                                    {/*    <a href="https://onlook.substack.com" target="_blank" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">Blog</a>*/}
+                                    {/*</li>*/}
                                     <li>
                                         <a href="/careers" className="text-foreground-secondary text-regular hover:underline hover:text-foreground-primary">Careers</a>
                                     </li>
