@@ -21,9 +21,9 @@ docker rm -f onlook-container || true
 echo "Creating next_static volume..."
 docker volume create next_static || true
 
-# Build optimized Docker image with memory constraints
-echo "Building optimized Docker image with memory limits..."
-docker build --memory=3g --memory-swap=4g -t onlook-app .
+# Build optimized Docker image with memory and CPU constraints
+echo "Building optimized Docker image with memory and CPU limits..."
+docker build --memory=3g --memory-swap=4g --cpu-period=100000 --cpu-quota=200000 -t onlook-app .
 
 # Create a temporary container to copy static files to the volume
 echo "Copying static files to shared volume..."
