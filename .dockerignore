@@ -12,6 +12,7 @@ yarn-error.log*
 **/dist/
 **/.cache/
 .turbo/
+apps/backend
 
 # Environment and config files (keep only .env that we explicitly copy)
 .env.local
