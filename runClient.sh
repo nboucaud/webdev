@@ -42,9 +42,9 @@ docker create --name ${TEMP_CONTAINER_NAME} ${DOCKER_USERNAME}/${IMAGE_NAME}:${T
 echo "Preparing volume and copying static files..."
 docker run --rm -v next_static:/volume alpine sh -c "rm -rf /volume/* && mkdir -p /volume" || true
 
-# Create temp directory and copy files
+# Create temp directory and copy files - FIXED PATH
 mkdir -p /tmp/next_static_temp_$$
-docker cp ${TEMP_CONTAINER_NAME}:/app/apps/web/client/.next/static/. /tmp/next_static_temp_$$/ 2>/dev/null || echo "No static files to copy, continuing..."
+docker cp ${TEMP_CONTAINER_NAME}:/app/.next/static/. /tmp/next_static_temp_$$/ 2>/dev/null || echo "No static files to copy, continuing..."
 
 # Copy to volume if files exist
 if [ -d "/tmp/next_static_temp_$$" ] && [ "$(ls -A /tmp/next_static_temp_$$)" ]; then
@@ -61,10 +61,8 @@ echo "Starting Client Service in production mode..."
 docker run -d --name ${CONTAINER_NAME} \
   --network deployment-onlook_network \
   --restart always \
-  -v next_static:/app/apps/web/client/.next/static \
-  -v "$(pwd)/apps/web/client/.env:/app/apps/web/client/.env:ro" \
-  --memory=1g \
-  --memory-swap=1.5g \
+  -v next_static:/app/.next/static \
+  --env-file "$(pwd)/apps/web/client/.env" \
   ${DOCKER_USERNAME}/${IMAGE_NAME}:${TAG}
 
 echo "Client is running in production mode!"
