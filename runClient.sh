@@ -64,9 +64,17 @@ docker run -d --name ${CONTAINER_NAME} \
   -v next_static:/app/.next/static \
   -v "$(pwd)/apps/web/client/.env:/app/.env:ro" \
   --env-file "$(pwd)/apps/web/client/.env" \
+  -e SKIP_ENV_VALIDATION=1 \
   ${DOCKER_USERNAME}/${IMAGE_NAME}:${TAG}
 
 echo "Client is running in production mode!"
 echo "Container will restart automatically on system reboot."
 echo "Static files are now available in the next_static volume for nginx to serve."
 echo "Container logs: docker logs -f ${CONTAINER_NAME}"
+
+# Give the container a moment to start
+sleep 3
+
+# Verify .env file is accessible in container
+echo "Verifying .env file in container..."
+docker exec ${CONTAINER_NAME} ls -la /app/.env || echo "Warning: .env file not found in container"
