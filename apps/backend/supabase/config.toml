@@ -18,9 +18,11 @@ jwt_expiry = 36000
 
 [db]
 port = 54322
+host = "0.0.0.0"
 
 [studio]
 port = 54323
+host = "0.0.0.0"
 
 [auth.external.github]
 enabled = true
