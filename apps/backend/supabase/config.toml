@@ -10,8 +10,8 @@ max_rows = 100
 [auth]
 site_url = "env(SITE_URL)"
 additional_redirect_urls = [
-    "env(SITE_URL)",
-    "env(SITE_URL)/auth/callback",
+    "http://webdev.infogito.com",
+    "http://webdev.infogito.com/auth/callback",
 ]
 jwt_expiry = 36000
 
@@ -25,13 +25,13 @@ port = 54323
 enabled = true
 client_id = "env(GITHUB_CLIENT_ID)"
 secret = "env(GITHUB_SECRET)"
-#redirect_uri ="env(REDIRECT_URI)"
+redirect_uri ="env(REDIRECT_URI)"
 
 [auth.external.google]
 enabled = true
 client_id = "env(GOOGLE_CLIENT_ID)"
 secret = "env(GOOGLE_SECRET)"
-#redirect_uri ="env(REDIRECT_URI)"
+redirect_uri ="env(REDIRECT_URI)"
 
 [analytics]
 enabled = true
