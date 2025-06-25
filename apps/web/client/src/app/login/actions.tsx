@@ -28,7 +28,7 @@ export async function login(provider: SignInMethod) {
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-            redirectTo: `${origin}/auth/callback`,
+            redirectTo: `${origin}/backend/auth/callback`,
         },
     });
 
