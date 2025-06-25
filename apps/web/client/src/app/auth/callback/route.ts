@@ -7,29 +7,41 @@ import { api } from '~/trpc/server';
 export async function GET(request: Request) {
     const { searchParams, origin } = new URL(request.url);
     const code = searchParams.get('code');
-
+    // if "next" is in param, use it as the redirect URL
+    let next = searchParams.get('next') ?? '/';
+    if (!next.startsWith('/')) {
+        // if "next" is not a relative URL, use the default
+        next = '/';
+    }
+    console.log({ Code: `Code: ${code}` });
+    const forwardedHost = request.headers.get('x-forwarded-host'); // original origin before load balancer
     if (code) {
         const supabase = await createClient();
         const { error, data } = await supabase.auth.exchangeCodeForSession(code);
+        console.log('Session exchange result:', {
+            hasError: !!error,
+            errorMessage: error?.message,
+            hasUser: !!data?.user,
+            hasSession: !!data?.session,
+        });
         if (!error) {
-            //const forwardedHost = request.headers.get('x-forwarded-host'); // original origin before load balancer
             const isLocalEnv = process.env.NODE_ENV === 'development';
-            const user = await getOrCreateUser(data.user.id);
-            trackUserSignedIn(user.id, {
-                name: data.user.user_metadata.name,
-                email: data.user.email,
-                avatar_url: data.user.user_metadata.avatar_url,
-            });
-
-            console.log({ redirectUrl: `${origin}/auth/redirect` });
-
-            return NextResponse.redirect(`${origin}/auth/redirect`);
+            if (isLocalEnv) {
+                // we can be sure that there is no load balancer in between, so no need to watch for X-Forwarded-Host
+                return NextResponse.redirect(`${origin}${next}`);
+            } else if (forwardedHost) {
+                return NextResponse.redirect(`http://${forwardedHost}${next}`);
+            } else {
+                return NextResponse.redirect(`${origin}${next}`);
+            }
         }
-        console.error(`Error exchanging code for session: ${error}`);
+        console.error({ error: error });
     }
-
+    const redirectUrl = forwardedHost
+        ? `http://${forwardedHost}/auth/auth-code-error`
+        : `${origin}/auth/auth-code-error`;
     // return the user to an error page with instructions
-    return NextResponse.redirect(`${origin}/auth/auth-code-error`);
+    return NextResponse.redirect(redirectUrl);
 }
 
 async function getOrCreateUser(userId: string): Promise<User> {
