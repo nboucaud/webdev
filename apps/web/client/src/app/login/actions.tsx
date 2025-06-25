@@ -9,6 +9,7 @@ import { redirect } from 'next/navigation';
 
 export async function login(provider: SignInMethod) {
     const supabase = await createClient();
+    console.log({ NEXT_PUBLIC_HOSTING_DOMAIN: process.env.NEXT_PUBLIC_HOSTING_DOMAIN });
     const origin =
         process.env.NEXT_PUBLIC_HOSTING_DOMAIN ||
         (await headers()).get('x-forwarded-host') ||
