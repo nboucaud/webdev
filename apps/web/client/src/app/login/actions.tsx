@@ -9,7 +9,10 @@ import { redirect } from 'next/navigation';
 
 export async function login(provider: SignInMethod) {
     const supabase = await createClient();
-    const origin = (await headers()).get('origin');
+    const origin =
+        process.env.NEXT_PUBLIC_HOSTING_DOMAIN ||
+        (await headers()).get('x-forwarded-host') ||
+        (await headers()).get('origin');
     console.log({ origin });
     // If already session, redirect
     const {
