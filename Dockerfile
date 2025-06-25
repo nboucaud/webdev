@@ -50,7 +50,7 @@ COPY --from=builder /app/apps/web/client/package.json ./package.json
 COPY --from=builder /app/node_modules ./node_modules
 
 # Copy .env file if it exists (optional, for development)
-COPY --from=builder /app/apps/web/client/.env* ./
+COPY --from=builder /app/apps/web/client/.env.production .env
 
 # Runtime config
 ENV NODE_ENV=production
