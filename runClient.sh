@@ -62,6 +62,7 @@ docker run -d --name ${CONTAINER_NAME} \
   --network deployment-onlook_network \
   --restart always \
   -v next_static:/app/.next/static \
+  -v "$(pwd)/apps/web/client/.env:/app/.env:ro" \
   --env-file "$(pwd)/apps/web/client/.env" \
   ${DOCKER_USERNAME}/${IMAGE_NAME}:${TAG}
 
