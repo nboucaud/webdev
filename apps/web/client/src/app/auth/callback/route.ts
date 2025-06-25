@@ -30,7 +30,7 @@ export async function GET(request: Request) {
                 // we can be sure that there is no load balancer in between, so no need to watch for X-Forwarded-Host
                 return NextResponse.redirect(`${origin}${next}`);
             } else if (forwardedHost) {
-                return NextResponse.redirect(`http://${forwardedHost}${next}`);
+                return NextResponse.redirect(`https://${forwardedHost}${next}`);
             } else {
                 return NextResponse.redirect(`${origin}${next}`);
             }
@@ -38,7 +38,7 @@ export async function GET(request: Request) {
         console.error({ error: error });
     }
     const redirectUrl = forwardedHost
-        ? `http://${forwardedHost}/auth/auth-code-error`
+        ? `https://${forwardedHost}/auth/auth-code-error`
         : `${origin}/auth/auth-code-error`;
     // return the user to an error page with instructions
     return NextResponse.redirect(redirectUrl);

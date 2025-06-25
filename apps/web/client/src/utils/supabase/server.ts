@@ -6,20 +6,9 @@ export async function createClient() {
     const cookieStore = await cookies();
 
     const getSupabaseUrl = () => {
-        if (process.env.NODE_ENV === 'production') {
-            // Production: Use the same backend that handles OAuth
-            return 'http://webdev.infogito.com/backend';
-        } else {
-            // Development: Use environment variable
-            return env.NEXT_PUBLIC_SUPABASE_URL;
-        }
+        return env.NEXT_PUBLIC_SUPABASE_URL;
     };
     const supabaseUrl = getSupabaseUrl();
-    console.log('Supabase client config:', {
-        url: supabaseUrl,
-        hasKey: !!env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
-        environment: process.env.NODE_ENV,
-    });
 
     // Create a server's supabase client with newly configured cookie,
     // which could be used to maintain user's session
