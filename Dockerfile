@@ -1,9 +1,8 @@
-FROM oven/bun:alpine AS builder
-
+FROM oven/bun:alpine AS deps
 WORKDIR /app
 
-# Install npm (needed for Next.js)
-RUN apk add --no-cache npm
+# # Install npm (needed for Next.js)
+# RUN apk add --no-cache npm
 
 # Copy package.json files first for better caching
 COPY package.json bun.lock ./
@@ -32,25 +31,27 @@ COPY tooling/typescript/package.json ./tooling/typescript/package.json
 RUN bun install --concurrent 10 --no-save
 
 # Copy all source code (after dependencies are installed)
+FROM oven/bun:alpine AS builder
+
+WORKDIR /app
 COPY . .
 
+COPY --from=deps /app/node_modules ./node_modules
 # Set working directory to client and build
 WORKDIR /app/apps/web/client
-RUN bun run build:fast
+RUN bun run build
 
 # Production stage with Node.js (reliable multi-arch)
-FROM node:20-alpine
+FROM node:20-alpine AS runner
 
 WORKDIR /app
 
 # Copy built application and node_modules
-COPY --from=builder /app/apps/web/client/.next ./.next
-COPY --from=builder /app/apps/web/client/public ./public
-COPY --from=builder /app/apps/web/client/package.json ./package.json
-COPY --from=builder /app/node_modules ./node_modules
-
-# Copy .env file if it exists (optional, for development)
-COPY --from=builder /app/apps/web/client/.env.production .env
+COPY --from=builder /app/apps/web/client/.next/standalone ./app/.next
+COPY --from=builder /app/apps/web/client/public ./app/public
+COPY --from=builder /app/apps/web/client/.next/static ./app/.next/static
+COPY --from=builder /app/apps/web/client/.env.production ./app/.env.production
+RUN npm i ws
 
 # Runtime config
 ENV NODE_ENV=production
@@ -58,4 +59,4 @@ ENV PORT=3000
 EXPOSE 3000
 
 # Use Node.js instead of bun for runtime
-CMD ["npm", "start"]
+CMD ["HOSTNAME='0.0.0.0'", "node", "app/.next/apps/web/client/server.js"]
