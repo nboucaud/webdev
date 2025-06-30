@@ -1,4 +1,4 @@
-import { anthropic } from '@ai-sdk/anthropic';
+import { togetherai } from '@ai-sdk/togetherai';
 import { Agent } from '@mastra/core/agent';
 import { weatherTool } from '../tools';
 
@@ -16,6 +16,6 @@ export const weatherAgent = new Agent({
 
       Use the weatherTool to fetch current weather data.
 `,
-    model: anthropic('claude-3-5-sonnet-20241022'),
+    model: togetherai('deepseek-ai/DeepSeek-V3'),
     tools: { weatherTool },
 });

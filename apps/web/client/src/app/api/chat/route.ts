@@ -1,5 +1,5 @@
 import { chatToolSet, getCreatePageSystemPrompt, getSystemPrompt, initModel } from '@onlook/ai';
-import { CLAUDE_MODELS, LLMProvider } from '@onlook/models';
+import { DEEPSEEK_MODELS, LLMProvider } from '@onlook/models';
 import { generateObject, NoSuchToolError, streamText } from 'ai';
 
 export enum ChatType {
@@ -11,10 +11,11 @@ export enum ChatType {
 
 export async function POST(req: Request) {
     const { messages, maxSteps, chatType } = await req.json();
-    const provider = LLMProvider.ANTHROPIC;
-    const { model, providerOptions } = await initModel(provider, CLAUDE_MODELS.SONNET_4);
+    const provider = LLMProvider.TOGETHERAI;
+    const { model, providerOptions } = await initModel(provider, DEEPSEEK_MODELS.V3);
 
-    const systemPrompt = chatType === ChatType.CREATE ? getCreatePageSystemPrompt() : getSystemPrompt();
+    const systemPrompt =
+        chatType === ChatType.CREATE ? getCreatePageSystemPrompt() : getSystemPrompt();
 
     const result = streamText({
         model,
@@ -47,7 +48,7 @@ export async function POST(req: Request) {
                 schema: tool?.parameters,
                 prompt: [
                     `The model tried to call the tool "${toolCall.toolName}"` +
-                    ` with the following arguments:`,
+                        ` with the following arguments:`,
                     JSON.stringify(toolCall.args),
                     `The tool accepts the following schema:`,
                     JSON.stringify(parameterSchema(toolCall)),

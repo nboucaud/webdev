@@ -45,6 +45,8 @@
         "extract-zip": "^2.0.1",
         "husky": "^9.1.6"
     },
-    "dependencies": {},
+    "dependencies": {
+        "@ai-sdk/togetherai": "^0.2.14"
+    },
     "packageManager": "bun@1.2.13"
 }

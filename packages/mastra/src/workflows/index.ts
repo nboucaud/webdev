@@ -1,9 +1,9 @@
-import { anthropic } from '@ai-sdk/anthropic';
+import { togetherai } from '@ai-sdk/togetherai';
 import { Agent } from '@mastra/core/agent';
 import { Step, Workflow } from '@mastra/core/workflows';
 import { z } from 'zod';
 
-const llm = anthropic('claude-3-5-sonnet-20241022');
+const llm = togetherai('deepseek-ai/DeepSeek-V3');
 
 const agent = new Agent({
     name: 'Weather Agent',

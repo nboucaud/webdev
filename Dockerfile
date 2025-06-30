@@ -31,7 +31,7 @@ COPY tooling/typescript/package.json ./tooling/typescript/package.json
 RUN bun install --concurrent 10 --no-save
 
 # Copy all source code (after dependencies are installed)
-FROM oven/bun:alpine AS builder
+FROM oven/bun AS builder
 
 WORKDIR /app
 COPY . .
