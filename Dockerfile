@@ -57,6 +57,7 @@ RUN npm i ws
 ENV NODE_ENV=production
 ENV PORT=3000
 EXPOSE 3000
+ENV HOSTNAME=0.0.0.0
 
 # Use Node.js instead of bun for runtime
-CMD ["HOSTNAME='0.0.0.0'", "node", "app/.next/apps/web/client/server.js"]
+CMD ["node", "app/.next/apps/web/client/server.js"]

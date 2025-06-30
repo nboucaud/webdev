@@ -5,9 +5,7 @@ set -e
 # Run Script - Pulls Docker image from Docker Hub and runs it on the server
 # Run this script on the remote server
 
-DOCKER_USERNAME="jem3i"
 IMAGE_NAME="onlook-app"
-TAG="${1:-latest}"  # Use provided tag or default to 'latest'
 CONTAINER_NAME="onlook-container"
 TEMP_CONTAINER_NAME="temp-static-container-$(date +%s)"  # Unique name with timestamp
 
@@ -16,11 +14,6 @@ if [ ! -f ./apps/web/client/.env ]; then
   echo ".env file not found in ./apps/web/client/. Please create it from .env.example."
   exit 1
 fi
-
-# Pull the latest image from Docker Hub
-echo "Pulling Docker image from Docker Hub..."
-docker pull ${DOCKER_USERNAME}/${IMAGE_NAME}:${TAG}
-
 # Create network (ignore if already exists)
 echo "Creating Docker network..."
 docker network create deployment-onlook_network 2>/dev/null || echo "Network already exists, continuing..."
@@ -36,7 +29,7 @@ docker volume create next_static 2>/dev/null || echo "Volume already exists, con
 
 # Create a temporary container to copy static files to the volume
 echo "Copying static files to shared volume..."
-docker create --name ${TEMP_CONTAINER_NAME} ${DOCKER_USERNAME}/${IMAGE_NAME}:${TAG}
+docker create --name ${TEMP_CONTAINER_NAME} ${IMAGE_NAME}
 
 # Clear the volume and copy new static files
 echo "Preparing volume and copying static files..."
@@ -65,7 +58,7 @@ docker run -d --name ${CONTAINER_NAME} \
   -v "$(pwd)/apps/web/client/.env:/app/.env:ro" \
   --env-file "$(pwd)/apps/web/client/.env" \
   -e SKIP_ENV_VALIDATION=1 \
-  ${DOCKER_USERNAME}/${IMAGE_NAME}:${TAG}
+  ${IMAGE_NAME}
 
 echo "Client is running in production mode!"
 echo "Container will restart automatically on system reboot."
