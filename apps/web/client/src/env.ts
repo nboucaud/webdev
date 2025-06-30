@@ -23,7 +23,7 @@ export const env = createEnv({
         GOOGLE_CLIENT_EMAIL: z.string().optional(),
         GOOGLE_PRIVATE_KEY: z.string().optional(),
         GOOGLE_PRIVATE_KEY_ID: z.string().optional(),
-        TOGETHERAI_API_KEY: z.string(),
+        TOGETHER_AI_API_KEY: z.string(),
     },
     /**
      * Specify your client-side environment variables schema here. This way you can ensure the app
@@ -68,7 +68,7 @@ export const env = createEnv({
         GOOGLE_CLIENT_EMAIL: process.env.GOOGLE_CLIENT_EMAIL,
         GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY,
         GOOGLE_PRIVATE_KEY_ID: process.env.GOOGLE_PRIVATE_KEY_ID,
-        TOGETHERAI_API_KEY: process.env.TOGETHERAI_API_KEY,
+        TOGETHER_AI_API_KEY: process.env.TOGETHERAI_API_KEY,
     },
     /**
      * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
