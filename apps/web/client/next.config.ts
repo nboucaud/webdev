@@ -16,6 +16,31 @@ const nextConfig: NextConfig = {
     },
 
     output: 'standalone', // For Docker optimization
+    webpack(config, { isServer }) {
+        console.log(`> 🔧 Webpack build for ${isServer ? 'server' : 'client'}`);
+
+        config.plugins.push({
+            apply(compiler) {
+                compiler.hooks.compilation.tap('LogModulesPlugin', (compilation) => {
+                    compilation.hooks.buildModule.tap('LogModulesPlugin', (module) => {
+                        if (module.resource) {
+                            const file = module.resource;
+                            if (
+                                file.includes('/node_modules/') ||
+                                file.includes('.next') ||
+                                file.includes('__virtual__')
+                            )
+                                return;
+
+                            console.log(`🛠️ ${isServer ? 'server' : 'client'}: ${file}`);
+                        }
+                    });
+                });
+            },
+        });
+
+        return config;
+    },
 };
 
 if (process.env.NODE_ENV === 'development') {
