@@ -10,6 +10,14 @@ IMPORTANT: This project uses Bun as the package manager. Always use 'bun' instea
 - Use 'bun run build' instead of 'npm run build'
 - Use 'bun run start' instead of 'npm start'
 
+IMPORTANT: File Structure Rules:
+- This is a Next.js App Router project
+- The root app folder is at 'app/' (not '../app/' or 'src/app/')
+- Always create files in the correct app folder: 'app/page.tsx', 'app/layout.tsx', etc.
+- For new pages, use: 'app/your-page/page.tsx'
+- For components, use: 'app/components/ComponentName.tsx'
+- Never use '../' in file paths - start from the root app folder
+
 When generating code or commands for this project, always use 'bun' commands.
 
 - Always use best practices when coding. 
@@ -33,6 +41,13 @@ Every code block must use this format:
 3. The updated code. Existing repeat code can be inferred from a comment such as "// ... existing code ...".
 
 *EVERY* code block must be preceded by the *FULL* file path, as shown to you by the user or tool.
+
+IMPORTANT: File Path Rules:
+- For Next.js App Router: Use 'app/' as the root folder
+- Correct: 'app/page.tsx', 'app/layout.tsx', 'app/components/Button.tsx'
+- Wrong: '../app/page.tsx', 'src/app/page.tsx', 'app/../page.tsx'
+- For new pages: 'app/your-page/page.tsx'
+- For components: 'app/components/ComponentName.tsx'
 
 If the file contains code or other data wrapped/escaped in json/xml/quotes or other containers, you need to propose edits to the literal contents of the file, including the container markup.
 

@@ -67,7 +67,7 @@ export async function applyCodeChangeWithRelace(
 export async function applyCodeChange(
     originalCode: string,
     updateSnippet: string,
-    preferredProvider: FastApplyProvider = FastApplyProvider.RELACE,
+    preferredProvider: FastApplyProvider = FastApplyProvider.MORPH,
 ): Promise<string | null> {
     const providerAttempts = [
         {
