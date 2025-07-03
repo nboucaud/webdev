@@ -1,9 +1,6 @@
 FROM oven/bun:alpine AS deps
 WORKDIR /app
 
-# # Install npm (needed for Next.js)
-# RUN apk add --no-cache npm
-
 # Copy package.json files first for better caching
 COPY package.json bun.lock ./
 COPY apps/web/client/package.json ./apps/web/client/package.json
@@ -39,7 +36,7 @@ COPY . .
 COPY --from=deps /app/node_modules ./node_modules
 # Set working directory to client and build
 WORKDIR /app/apps/web/client
-RUN bun run build
+RUN bun run build  
 
 # Production stage with Node.js (reliable multi-arch)
 FROM node:20-alpine AS runner
