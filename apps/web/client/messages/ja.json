@@ -22,8 +22,8 @@
                     "無制限のプロジェクト",
                     "無制限のAIチャットメッセージ（1日あたり）",
                     "無制限の月間チャット",
-                    "ビルド時にOnlookの透かしを削除",
-                    "Onlookでホスティングされた1つの無料カスタムドメイン",
+                    "ビルド時にinfogitoの透かしを削除",
+                    "infogitoでホスティングされた1つの無料カスタムドメイン",
                     "優先サポート"
                 ]
             },
@@ -233,12 +233,12 @@
                 "load": "既存のプロジェクトを読み込む"
             },
             "loading": {
-                "title": "新しいOnlookアプリをセットアップしています...",
+                "title": "新しいinfogitoアプリをセットアップしています...",
                 "description": "数秒かかる場合があります",
                 "cancel": "キャンセル"
             },
             "error": {
-                "title": "Onlookアプリの作成中にエラーが発生しました",
+                "title": "infogitoアプリの作成中にエラーが発生しました",
                 "backToPrompt": "プロンプトに戻る"
             }
         },
@@ -253,7 +253,7 @@
         "actions": {
             "import": "インポート",
             "close": "閉じる",
-            "about": "Onlookについて",
+            "about": "infogitoについて",
             "signOut": "サインアウト",
             "editApp": "アプリを編集",
             "projectSettings": "プロジェクト設定",
@@ -299,9 +299,9 @@
         }
     },
     "welcome": {
-        "title": "Onlookへようこそ",
-        "titleReturn": "Onlookにお帰りなさい",
-        "description": "Onlookは、Reactアプリ向けのオープンソースビジュアルエディタです。実際に稼働する製品上で直接デザインできます。",
+        "title": "infogitoへようこそ",
+        "titleReturn": "infogitoにお帰りなさい",
+        "description": "infogitoは、Reactアプリ向けのオープンソースビジュアルエディタです。実際に稼働する製品上で直接デザインできます。",
         "alpha": "アルファ版",
         "login": {
             "github": "GitHubでログイン",
@@ -320,7 +320,7 @@
     },
     "help": {
         "menu": {
-            "reloadOnlook": "Onlookを再読み込み",
+            "reloadinfogito": "infogitoを再読み込み",
             "theme": {
                 "title": "テーマ",
                 "light": "ライト",

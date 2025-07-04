@@ -21,7 +21,7 @@ export const InputContextPills = observer(() => {
     return (
         <div
             className={cn(
-                'flex flex-row flex-wrap w-full gap-1.5 text-micro mb-1 text-foreground-secondary',
+                'flex flex-row flex-wrap w-full gap-1.5 text-micro mb-1 text-black',
                 editorEngine.chat.context.context.length > 0 ? 'min-h-6' : 'h-0',
             )}
         >

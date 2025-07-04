@@ -29,7 +29,7 @@ export const OverflowMenu = ({ isOpen, onOpenChange, overflowGroups, visibleCoun
                         className="w-8 h-8 flex items-center justify-center"
                         aria-label="Show more toolbar controls"
                     >
-                        <Icons.DotsHorizontal className="w-5 h-5" />
+                        <Icons.DotsHorizontal className="w-5 h-5 text-[#8bedeb]" />
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
@@ -50,4 +50,4 @@ export const OverflowMenu = ({ isOpen, onOpenChange, overflowGroups, visibleCoun
             </DropdownMenu>
         </>
     );
-}; 
+};

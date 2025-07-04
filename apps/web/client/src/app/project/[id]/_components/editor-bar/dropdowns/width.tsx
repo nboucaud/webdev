@@ -14,8 +14,8 @@ export const Width = observer(() => {
     const { dimensionState, handleDimensionChange, handleUnitChange, handleLayoutChange } =
         useDimensionControl('width');
 
-    const { isOpen, onOpenChange } = useDropdownControl({ 
-        id: 'width-dropdown' 
+    const { isOpen, onOpenChange } = useDropdownControl({
+        id: 'width-dropdown'
     });
 
     return (
@@ -25,7 +25,7 @@ export const Width = observer(() => {
                     <Button
                         variant="ghost"
                         size="toolbar"
-                        className="text-muted-foreground border-border/0 hover:bg-background-tertiary/20 hover:border-border data-[state=open]:bg-background-tertiary/20 data-[state=open]:border-border flex cursor-pointer items-center gap-1 border hover:border hover:text-white focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none active:border-0 data-[state=open]:border data-[state=open]:text-white"
+                        className="text-[#8bedeb] border-border/0 hover:bg-background-tertiary/20 hover:border-border data-[state=open]:bg-background-tertiary/20 data-[state=open]:border-border flex cursor-pointer items-center gap-1 border hover:border focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none active:border-0 data-[state=open]:border data-[state=open]:text-white"
                     >
                         <Icons.Width className="h-4 w-4 min-h-4 min-w-4" />
                         <span className="text-small">
