@@ -42,19 +42,19 @@ docker create --name ${TEMP_CONTAINER_NAME} ${DOCKER_USERNAME}/${IMAGE_NAME}:${T
 echo "Preparing volume and copying static files..."
 docker run --rm -v next_static:/volume alpine sh -c "rm -rf /volume/* && mkdir -p /volume" || true
 
-# Create temp directory and copy Next.js static files
+# Create temp directory and copy Next.js static files - FIXED PATH based on Dockerfile
 mkdir -p /tmp/next_static_temp_$$
-docker cp ${TEMP_CONTAINER_NAME}:/apps/web/client/.next/static/. /tmp/next_static_temp_$$/ 2>/dev/null || echo "No static files to copy, continuing..."
+docker cp ${TEMP_CONTAINER_NAME}:/app/.next/static/. /tmp/next_static_temp_$$/ 2>/dev/null || echo "No static files to copy, continuing..."
 
 # Copy to volume if files exist
 if [ -d "/tmp/next_static_temp_$$" ] && [ "$(ls -A /tmp/next_static_temp_$$)" ]; then
     docker run --rm -v next_static:/volume -v /tmp/next_static_temp_$$:/source alpine cp -r /source/. /volume/ || echo "Failed to copy static files, continuing..."
 fi
 
-# Copy assets folder from public directory - FIXED PATH
+# Copy assets folder from public directory - FIXED PATH based on Dockerfile
 echo "Copying assets folder to shared volume..."
 mkdir -p /tmp/assets_temp_$$
-docker cp ${TEMP_CONTAINER_NAME}:/apps/web/client/public/assets/. /tmp/assets_temp_$$/ 2>/dev/null || echo "No assets files to copy, continuing..."
+docker cp ${TEMP_CONTAINER_NAME}:/app/public/assets/. /tmp/assets_temp_$$/ 2>/dev/null || echo "No assets files to copy, continuing..."
 
 # Copy assets to volume if files exist
 if [ -d "/tmp/assets_temp_$$" ] && [ "$(ls -A /tmp/assets_temp_$$)" ]; then
@@ -72,8 +72,8 @@ echo "Starting Client Service in production mode..."
 docker run -d --name ${CONTAINER_NAME} \
   --network deployment-onlook_network \
   --restart always \
-  -v next_static:/.next/static \
-  -v "$(pwd)/apps/web/client/.env:/.env:ro" \
+  -v next_static:/app/.next/static \
+  -v "$(pwd)/apps/web/client/.env:/app/.env.production:ro" \
   --env-file "$(pwd)/apps/web/client/.env" \
   -e SKIP_ENV_VALIDATION=1 \
   ${DOCKER_USERNAME}/${IMAGE_NAME}:${TAG}
