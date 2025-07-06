@@ -45,3 +45,5 @@ yarn.lock
 .env.production.local
 
 mise.toml
+temp_auto_push.bat
+temp_interactive_push.bat
