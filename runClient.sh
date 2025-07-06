@@ -44,17 +44,17 @@ docker run --rm -v next_static:/volume alpine sh -c "rm -rf /volume/* && mkdir -
 
 # Create temp directory and copy Next.js static files
 mkdir -p /tmp/next_static_temp_$$
-docker cp ${TEMP_CONTAINER_NAME}:/app/app/.next/static/. /tmp/next_static_temp_$$/ 2>/dev/null || echo "No static files to copy, continuing..."
+docker cp ${TEMP_CONTAINER_NAME}:/app/apps/web/client/.next/static/. /tmp/next_static_temp_$$/ 2>/dev/null || echo "No static files to copy, continuing..."
 
 # Copy to volume if files exist
 if [ -d "/tmp/next_static_temp_$$" ] && [ "$(ls -A /tmp/next_static_temp_$$)" ]; then
     docker run --rm -v next_static:/volume -v /tmp/next_static_temp_$$:/source alpine cp -r /source/. /volume/ || echo "Failed to copy static files, continuing..."
 fi
 
-# Copy assets folder from public directory
+# Copy assets folder from public directory - FIXED PATH
 echo "Copying assets folder to shared volume..."
 mkdir -p /tmp/assets_temp_$$
-docker cp ${TEMP_CONTAINER_NAME}:/app/app/public/assets/. /tmp/assets_temp_$$/ 2>/dev/null || echo "No assets files to copy, continuing..."
+docker cp ${TEMP_CONTAINER_NAME}:/app/apps/web/client/public/assets/. /tmp/assets_temp_$$/ 2>/dev/null || echo "No assets files to copy, continuing..."
 
 # Copy assets to volume if files exist
 if [ -d "/tmp/assets_temp_$$" ] && [ "$(ls -A /tmp/assets_temp_$$)" ]; then
