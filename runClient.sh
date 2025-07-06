@@ -42,7 +42,7 @@ docker create --name ${TEMP_CONTAINER_NAME} ${DOCKER_USERNAME}/${IMAGE_NAME}:${T
 echo "Preparing volume and copying static files..."
 docker run --rm -v next_static:/volume alpine sh -c "rm -rf /volume/* && mkdir -p /volume" || true
 
-# Create temp directory and copy files - FIXED PATH
+# Create temp directory and copy Next.js static files
 mkdir -p /tmp/next_static_temp_$$
 docker cp ${TEMP_CONTAINER_NAME}:/app/app/.next/static/. /tmp/next_static_temp_$$/ 2>/dev/null || echo "No static files to copy, continuing..."
 
@@ -51,10 +51,21 @@ if [ -d "/tmp/next_static_temp_$$" ] && [ "$(ls -A /tmp/next_static_temp_$$)" ];
     docker run --rm -v next_static:/volume -v /tmp/next_static_temp_$$:/source alpine cp -r /source/. /volume/ || echo "Failed to copy static files, continuing..."
 fi
 
+# Copy assets folder from public directory
+echo "Copying assets folder to shared volume..."
+mkdir -p /tmp/assets_temp_$$
+docker cp ${TEMP_CONTAINER_NAME}:/app/app/public/assets/. /tmp/assets_temp_$$/ 2>/dev/null || echo "No assets files to copy, continuing..."
+
+# Copy assets to volume if files exist
+if [ -d "/tmp/assets_temp_$$" ] && [ "$(ls -A /tmp/assets_temp_$$)" ]; then
+    docker run --rm -v next_static:/volume -v /tmp/assets_temp_$$:/source alpine sh -c "mkdir -p /volume/assets && cp -r /source/. /volume/assets/" || echo "Failed to copy assets files, continuing..."
+fi
+
 # Clean up temporary container and files
 echo "Cleaning up temporary resources..."
 docker rm ${TEMP_CONTAINER_NAME} 2>/dev/null || true
 rm -rf /tmp/next_static_temp_$$ 2>/dev/null || true
+rm -rf /tmp/assets_temp_$$ 2>/dev/null || true
 
 # Run container in production mode with memory limits and restart policy
 echo "Starting Client Service in production mode..."
@@ -69,5 +80,5 @@ docker run -d --name ${CONTAINER_NAME} \
 
 echo "Client is running in production mode!"
 echo "Container will restart automatically on system reboot."
-echo "Static files are now available in the next_static volume for nginx to serve."
+echo "Static files and assets are now available in the next_static volume for nginx to serve."
 echo "Container logs: docker logs -f ${CONTAINER_NAME}"

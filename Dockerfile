@@ -37,6 +37,7 @@ COPY --from=deps /app/node_modules ./node_modules
 # Set working directory to client and build
 WORKDIR /app/apps/web/client
 RUN bun run build  
+RUN bun add ws
 
 # Production stage with Node.js (reliable multi-arch)
 FROM node:20-alpine AS runner
@@ -44,11 +45,13 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 # Copy built application and node_modules
-COPY --from=builder /app/apps/web/client/.next/standalone ./app/.next
-COPY --from=builder /app/apps/web/client/public ./app/public
-COPY --from=builder /app/apps/web/client/.next/static ./app/.next/static
-COPY --from=builder /app/apps/web/client/.env.production ./app/.env.production
-RUN npm i ws
+COPY --from=builder /app/node_modules/ws ./node_modules/ws
+COPY --from=builder /app/apps/web/client/.next/standalone ./
+COPY --from=builder /app/apps/web/client/public ./public
+COPY --from=builder /app/apps/web/client/.next/static ./.next/static
+COPY --from=builder /app/apps/web/client/.env.production ./.env.production
+
+
 
 # Runtime config
 ENV NODE_ENV=production
@@ -57,4 +60,4 @@ EXPOSE 3000
 ENV HOSTNAME=0.0.0.0
 
 # Use Node.js instead of bun for runtime
-CMD ["node", "app/.next/apps/web/client/server.js"]
+CMD ["node", "./apps/web/client/server.js"]
