@@ -44,7 +44,7 @@ docker run --rm -v next_static:/volume alpine sh -c "rm -rf /volume/* && mkdir -
 
 # Create temp directory and copy Next.js static files
 mkdir -p /tmp/next_static_temp_$$
-docker cp ${TEMP_CONTAINER_NAME}:/app/apps/web/client/.next/static/. /tmp/next_static_temp_$$/ 2>/dev/null || echo "No static files to copy, continuing..."
+docker cp ${TEMP_CONTAINER_NAME}:/apps/web/client/.next/static/. /tmp/next_static_temp_$$/ 2>/dev/null || echo "No static files to copy, continuing..."
 
 # Copy to volume if files exist
 if [ -d "/tmp/next_static_temp_$$" ] && [ "$(ls -A /tmp/next_static_temp_$$)" ]; then
@@ -54,7 +54,7 @@ fi
 # Copy assets folder from public directory - FIXED PATH
 echo "Copying assets folder to shared volume..."
 mkdir -p /tmp/assets_temp_$$
-docker cp ${TEMP_CONTAINER_NAME}:/app/apps/web/client/public/assets/. /tmp/assets_temp_$$/ 2>/dev/null || echo "No assets files to copy, continuing..."
+docker cp ${TEMP_CONTAINER_NAME}:/apps/web/client/public/assets/. /tmp/assets_temp_$$/ 2>/dev/null || echo "No assets files to copy, continuing..."
 
 # Copy assets to volume if files exist
 if [ -d "/tmp/assets_temp_$$" ] && [ "$(ls -A /tmp/assets_temp_$$)" ]; then
@@ -72,8 +72,8 @@ echo "Starting Client Service in production mode..."
 docker run -d --name ${CONTAINER_NAME} \
   --network deployment-onlook_network \
   --restart always \
-  -v next_static:/app/.next/static \
-  -v "$(pwd)/apps/web/client/.env:/app/.env:ro" \
+  -v next_static:/.next/static \
+  -v "$(pwd)/apps/web/client/.env:/.env:ro" \
   --env-file "$(pwd)/apps/web/client/.env" \
   -e SKIP_ENV_VALIDATION=1 \
   ${DOCKER_USERNAME}/${IMAGE_NAME}:${TAG}
