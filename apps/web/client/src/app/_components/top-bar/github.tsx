@@ -31,10 +31,12 @@ export function GitHubButton() {
         fetchStarCount();
     }, []);
 
-    return (
-        <Link href="https://github.com/onlook-dev/onlook" className="flex items-center gap-1.5 text-small hover:opacity-80">
-            <Icons.GitHubLogo className="h-5 w-5" />
-            <span className="transition-all duration-300">{starCount}</span>
-        </Link>
-    );
+    return null
+
+    // return (
+    //     <Link href="https://github.com/onlook-dev/onlook" className="flex items-center gap-1.5 text-small hover:opacity-80">
+    //         <Icons.GitHubLogo className="h-5 w-5" />
+    //         <span className="transition-all duration-300">{starCount}</span>
+    //     </Link>
+    // );
 }

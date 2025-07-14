@@ -261,7 +261,7 @@
     --border-hover: 0 0% 57%; /* gray */
 
     --muted: 0 0% 95%; /* very light gray */
-    --muted-foreground: 0 0% 20%; /* dark gray */
+    --muted-foreground: #8bedeb; /* dark gray */
 
     --accent: 0 0% 95%; /* very light gray */
     --accent-foreground: 0 0% 10%; /* black */
@@ -514,7 +514,7 @@
     --border-hover: 0 0% 38%; /* gray[500] */
 
     --muted: 12 6.5% 15.1%; /* shadcn */
-    --muted-foreground: 24 5.4% 63.9%; /* shadcn */
+    --muted-foreground: #8bedeb; /* shadcn */
 
     --accent: 12 6.5% 15.1%; /* shadcn */
     --accent-foreground: 60 9.1% 97.8%; /* shadcn */

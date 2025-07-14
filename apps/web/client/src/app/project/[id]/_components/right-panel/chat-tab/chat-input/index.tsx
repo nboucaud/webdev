@@ -301,7 +301,7 @@ export const ChatInput = observer(() => {
                             <Button
                                 size={'icon'}
                                 variant={'secondary'}
-                                className="text-smallPlus w-fit h-full py-0.5 px-2.5 text-primary"
+                                className="text-smallPlus w-fit h-full py-0.5 px-2.5 text-[#8bedeb]"
                                 onClick={() => {
                                     setActionTooltipOpen(false);
                                     stop();
@@ -316,7 +316,7 @@ export const ChatInput = observer(() => {
                     <Button
                         size={'icon'}
                         variant={'secondary'}
-                        className="text-smallPlus w-fit h-full py-0.5 px-2.5 text-primary"
+                        className="text-smallPlus w-fit h-full py-0.5 px-2.5 text-[#8bedeb]"
                         disabled={inputEmpty || status !== 'ready'}
                         onClick={sendMessage}
                     >

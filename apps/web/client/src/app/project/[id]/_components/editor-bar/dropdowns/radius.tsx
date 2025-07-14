@@ -18,9 +18,9 @@ import { SpacingInputs } from "../inputs/spacing-inputs";
 export const Radius = observer(() => {
     const [activeTab, setActiveTab] = useState('all');
     const { boxState, handleBoxChange, handleUnitChange, handleIndividualChange } = useBoxControl('radius');
-    
-    const { isOpen, onOpenChange } = useDropdownControl({ 
-        id: 'radius-dropdown' 
+
+    const { isOpen, onOpenChange } = useDropdownControl({
+        id: 'radius-dropdown'
     });
 
     return (
@@ -30,7 +30,7 @@ export const Radius = observer(() => {
                     <Button
                         variant="ghost"
                         size="toolbar"
-                        className="text-muted-foreground border-border/0 hover:bg-background-tertiary/20 hover:border-border data-[state=open]:bg-background-tertiary/20 data-[state=open]:border-border gap-1 flex cursor-pointer items-center border hover:border hover:text-white focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none active:border-0 data-[state=open]:border data-[state=open]:text-white"
+                        className="text-[#8bedeb] border-border/0 hover:bg-background-tertiary/20 hover:border-border data-[state=open]:bg-background-tertiary/20 data-[state=open]:border-border gap-1 flex cursor-pointer items-center border hover:border focus:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:outline-none active:border-0 data-[state=open]:border data-[state=open]:text-white"
                     >
                         <Icons.CornerRadius className="h-4 min-h-4 w-4 min-w-4" />
                         {boxState.borderRadius.unit === 'px' && typeof boxState.borderRadius.num === 'number' && boxState.borderRadius.num !== 0 ? (
