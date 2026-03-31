@@ -18,12 +18,12 @@ declare const messages: {
                 "load": "Load Existing Project"
             },
             "loading": {
-                "title": "Setting up your new Onlook app...",
+                "title": "Setting up your new Infogito app...",
                 "description": "This may take a few seconds",
                 "cancel": "Cancel"
             },
             "error": {
-                "title": "Error creating your Onlook app",
+                "title": "Error creating your Infogito app",
                 "backToPrompt": "Back to Prompting"
             }
         },
@@ -38,7 +38,7 @@ declare const messages: {
         "actions": {
             "import": "Import",
             "close": "Close",
-            "about": "About Onlook",
+            "about": "About Infogito",
             "signOut": "Sign out",
             "editApp": "Edit App",
             "projectSettings": "Project settings",
@@ -84,9 +84,9 @@ declare const messages: {
         }
     },
     "welcome": {
-        "title": "Welcome to Onlook",
-        "titleReturn": "Welcome back to Onlook",
-        "description": "Onlook is an open-source visual editor for React apps. Design directly in your live product.",
+        "title": "Welcome to Infogito",
+        "titleReturn": "Welcome back to Infogito",
+        "description": "Infogito is an open-source visual editor for React apps. Design directly in your live product.",
         "alpha": "Alpha",
         "login": {
             "github": "Login with GitHub",
@@ -126,8 +126,8 @@ declare const messages: {
                     "Unlimited projects",
                     "Unlimited AI chat messages a day",
                     "Unlimited monthly chats",
-                    "Remove built with Onlook watermark",
-                    "1 free custom domain hosted with Onlook",
+                    "Remove built with Infogito watermark",
+                    "1 free custom domain hosted with Infogito",
                     "Priority support"
                 ]
             },
@@ -323,7 +323,7 @@ declare const messages: {
     },
     "help": {
         "menu": {
-            "reloadOnlook": "Reload Onlook",
+            "reloadInfogito": "Reload Infogito",
             "theme": {
                 "title": "Theme",
                 "light": "Light",

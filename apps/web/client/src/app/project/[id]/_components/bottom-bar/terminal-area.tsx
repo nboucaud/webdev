@@ -32,7 +32,7 @@ export const TerminalArea = observer(({ children }: { children: React.ReactNode 
                         <TooltipTrigger asChild>
                             <button
                                 onClick={() => setTerminalHidden(!terminalHidden)}
-                                className="h-9 w-9 flex items-center justify-center hover:text-foreground-hover text-foreground-tertiary hover:bg-accent rounded-md"
+                                className="h-9 w-9 flex items-center justify-center hover:text-foreground-hover text-[#8bedeb] hover:bg-accent rounded-md"
                             >
                                 <Icons.Terminal />
                             </button>

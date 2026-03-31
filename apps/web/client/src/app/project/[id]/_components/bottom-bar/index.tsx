@@ -90,7 +90,7 @@ export const BottomBar = observer(() => {
                                             value={item.mode}
                                             aria-label={item.hotkey.description}
                                             disabled={item.disabled}
-                                            className="hover:text-foreground-hover text-foreground-tertiary"
+                                            className="hover:text-foreground-hover text-[#8bedeb]"
                                         >
                                             <item.icon />
                                         </ToggleGroupItem>

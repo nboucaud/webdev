@@ -63,7 +63,7 @@ export const TopBar = observer(({ projectId }: { projectId: string }) => {
                                     <Button
                                         variant="ghost"
                                         size="icon"
-                                        className="h-8"
+                                        className="h-8 text-[#8bedeb]"
                                         onClick={click}
                                         disabled={isDisabled}
                                     >

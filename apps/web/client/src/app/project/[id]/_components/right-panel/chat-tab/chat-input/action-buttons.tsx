@@ -37,7 +37,7 @@ export const ActionButtons = ({
                     <Button
                         variant={'ghost'}
                         size={'icon'}
-                        className="w-9 h-9 text-foreground-tertiary group hover:bg-transparent cursor-pointer"
+                        className="w-9 h-9 text-[#8bedeb] group hover:bg-transparent cursor-pointer"
                         onClick={handleOpenFileDialog}
                         disabled={disabled}
                     >

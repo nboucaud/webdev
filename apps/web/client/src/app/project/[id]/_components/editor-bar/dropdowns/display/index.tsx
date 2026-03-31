@@ -30,9 +30,9 @@ export const Display = observer(() => {
     const [layoutType, setLayoutType] = useState(
         editorEngine.style.selectedStyle?.styles.computed.display ?? 'block',
     );
-    
-    const { isOpen, onOpenChange } = useDropdownControl({ 
-        id: 'display-dropdown' 
+
+    const { isOpen, onOpenChange } = useDropdownControl({
+        id: 'display-dropdown'
     });
 
     useEffect(() => {
@@ -46,7 +46,7 @@ export const Display = observer(() => {
                     <Button
                         variant="ghost"
                         size="toolbar"
-                        className="flex items-center gap-1 text-muted-foreground border border-border/0 cursor-pointer rounded-lg hover:bg-background-tertiary/20 hover:text-white hover:border hover:border-border data-[state=open]:bg-background-tertiary/20 data-[state=open]:text-white data-[state=open]:border data-[state=open]:border-border focus-visible:ring-0 focus-visible:ring-offset-0 focus:outline-none focus-visible:outline-none active:border-0"
+                        className="flex items-center gap-1 text-[#8bedeb] border border-border/0 cursor-pointer rounded-lg hover:bg-background-tertiary/20 hover:border hover:border-border data-[state=open]:bg-background-tertiary/20 data-[state=open]:text-white data-[state=open]:border data-[state=open]:border-border focus-visible:ring-0 focus-visible:ring-offset-0 focus:outline-none focus-visible:outline-none active:border-0"
                     >
                         <Icons.Layout className="h-4 w-4 min-h-4 min-w-4" />
                         {(layoutType === 'flex' || layoutType === 'grid') && (

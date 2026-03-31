@@ -24,9 +24,9 @@ export default function LoginPage() {
                     </Link>
                 </div>
                 <div className="space-y-8">
-                    <div className="space-y-2 uppercase rounded-full p-1 px-2 w-auto inline-block text-micro border-[0.5px] text-blue-400 border-blue-400">
-                        <p>Beta</p>
-                    </div>
+                    {/*<div className="space-y-2 uppercase rounded-full p-1 px-2 w-auto inline-block text-micro border-[0.5px] text-blue-400 border-blue-400">*/}
+                    {/*    <p>Beta</p>*/}
+                    {/*</div>*/}
                     <div className="space-y-4">
                         <h1 className="text-title1 leading-tight">
                             {t(transKeys.welcome.title)}
@@ -44,26 +44,26 @@ export default function LoginPage() {
                             DEV MODE: Sign in as demo user
                         </Button>
                     )}
-                    <p className="text-small text-foreground-onlook">
-                        {t(transKeys.welcome.terms.agreement)}{' '}
-                        <button
-                            onClick={() =>
-                                window.open('https://onlook.com/privacy-policy', '_blank')
-                            }
-                            className="text-gray-300 hover:text-gray-50 underline transition-colors duration-200"
-                        >
-                            {t(transKeys.welcome.terms.privacy)}
-                        </button>{' '}
-                        {t(transKeys.welcome.terms.and)}{' '}
-                        <button
-                            onClick={() =>
-                                window.open('https://onlook.com/terms-of-service', '_blank')
-                            }
-                            className="text-gray-300 hover:text-gray-50 underline transition-colors duration-200"
-                        >
-                            {t(transKeys.welcome.terms.tos)}
-                        </button>
-                    </p>
+                    {/*<p className="text-small text-foreground-onlook">*/}
+                    {/*    {t(transKeys.welcome.terms.agreement)}{' '}*/}
+                    {/*    <button*/}
+                    {/*        onClick={() =>*/}
+                    {/*            window.open('https://onlook.com/privacy-policy', '_blank')*/}
+                    {/*        }*/}
+                    {/*        className="text-gray-300 hover:text-gray-50 underline transition-colors duration-200"*/}
+                    {/*    >*/}
+                    {/*        {t(transKeys.welcome.terms.privacy)}*/}
+                    {/*    </button>{' '}*/}
+                    {/*    {t(transKeys.welcome.terms.and)}{' '}*/}
+                    {/*    <button*/}
+                    {/*        onClick={() =>*/}
+                    {/*            window.open('https://onlook.com/terms-of-service', '_blank')*/}
+                    {/*        }*/}
+                    {/*        className="text-gray-300 hover:text-gray-50 underline transition-colors duration-200"*/}
+                    {/*    >*/}
+                    {/*        {t(transKeys.welcome.terms.tos)}*/}
+                    {/*    </button>*/}
+                    {/*</p>*/}
                 </div>
                 <div className="flex flex-row space-x-1 text-small text-gray-600">
                     <p>{t(transKeys.welcome.version, { version: '1.0.0' })}</p>

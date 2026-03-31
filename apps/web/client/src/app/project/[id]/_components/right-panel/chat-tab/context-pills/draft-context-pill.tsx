@@ -24,7 +24,7 @@ export const DraftContextPill = React.forwardRef<
                     ease: 'easeOut',
                 },
             }}
-            className="group relative flex flex-row items-center gap-1 justify-center border bg-background-tertiary rounded-md h-7 px-2"
+            className="group relative flex flex-row items-center gap-1 justify-center border bg-[#8bedeb] rounded-md h-7 px-2"
             ref={ref}
         >
             <div className="w-4 flex text-center items-center justify-center">
